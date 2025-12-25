@@ -1,0 +1,5 @@
+# Local build cache
+.zmk-workspace/
+firmware/
+
+.DS_Store
