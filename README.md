@@ -96,6 +96,8 @@ If you have Bluetooth pairing issues:
 
 ## Trackball
 
+The mouse layer will be active after using the trackball for 400ms.
+
 - **Normal mode**: Move cursor (BASE layer)
 - **Scroll mode**: Hold NAV layer (layer 1) and move trackball
 - **Buttons**: Hold MOUSE layer (layer 2)
