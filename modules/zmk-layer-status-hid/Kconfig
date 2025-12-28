@@ -1,0 +1,6 @@
+config ZMK_LAYER_STATUS_HID
+    bool "Enable layer status HID reporting for Keyboard layers app companion"
+    default y
+    help
+        Enables sending layer state changes via USB HID raw reports
+        compatible with the Keyboard layers app companion.

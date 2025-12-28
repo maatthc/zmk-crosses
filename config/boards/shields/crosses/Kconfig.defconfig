@@ -19,5 +19,8 @@ config ZMK_SPLIT
 config ZMK_STUDIO_RPC
 	default y if ZMK_STUDIO
 
+config ZMK_LAYER_STATUS_HID
+	default y
+
 endif
 

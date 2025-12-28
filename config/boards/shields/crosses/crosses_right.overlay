@@ -5,6 +5,7 @@
  */
  
 #include "crosses.dtsi"
+#include "crosses_layer_hid.overlay"
 
 &default_transform {
     col-offset = <6>;

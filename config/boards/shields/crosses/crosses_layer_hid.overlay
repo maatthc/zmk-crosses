@@ -1,0 +1,31 @@
+/*
+ * Copyright (c) 2024 ZMK Contributors
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+/ {
+    chosen {
+        zmk,usb-hid-report-desc = <&raw_hid_report_desc>;
+    };
+};
+
+&usbd {
+    status = "okay";
+};
+
+/ {
+    raw_hid_report_desc {
+        compatible = "zmk,usb-hid-report-desc";
+        #address-cells = <1>;
+        #size-cells = <0>;
+        
+        raw_hid: raw_hid@0 {
+            reg = <0>;
+            usage-page = <0xFF60>;
+            usage = <0x61>;
+            report-size = <8>;
+            report-count = <32>;
+        };
+    };
+};

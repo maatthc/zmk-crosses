@@ -149,6 +149,14 @@ The `keymap_drawer.config.yaml` file customizes:
 - **Layout**: Ortho split 3x6+3 configuration
 - **Key mappings**: How ZMK keycodes are displayed
 
+## Keyboard Layers App Companion
+
+This firmware includes support for the [Keyboard Layers App Companion](https://github.com/maatthc/qmk_layers_app_companion), which displays the currently active keyboard layer on your screen.
+
+See [KEYBOARD_LAYERS_APP_COMPANION.md](KEYBOARD_LAYERS_APP_COMPANION.md) for setup instructions.
+
+**Note**: Layer reporting only works over USB connections, not Bluetooth.
+
 ## Credits
 
 - [HeeTuic - this Crosses build](https://github.com/HeeTuic/zmk-for-crosses)

@@ -1,0 +1,3 @@
+manifest:
+  self:
+    path: modules/zmk-layer-status-hid
