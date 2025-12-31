@@ -1,0 +1,67 @@
+#include <dt-bindings/zmk/input_transform.h>
+
+&pinctrl {
+    i2c0_default: i2c0_default {
+        group1 {
+            psels = <NRF_PSEL(TWIM_SDA, 1, 4)>,
+                <NRF_PSEL(TWIM_SCL, 1, 6)>;
+        };
+    };
+
+    i2c0_sleep: i2c0_sleep {
+        group1 {
+            psels = <NRF_PSEL(TWIM_SDA, 1, 4)>,
+                <NRF_PSEL(TWIM_SCL, 1, 6)>;
+            low-power-enable;
+        };
+    };
+
+    spi1_default: spi1_default {
+        group1 {
+            psels
+              = <NRF_PSEL(SPIM_SCK, 0, 17)>
+              , <NRF_PSEL(SPIM_MOSI, 0, 20)>
+              , <NRF_PSEL(SPIM_MISO, 0, 20)>
+              ;
+        };
+    };
+
+    spi1_sleep: spi1_sleep {
+        group1 {
+            psels
+              = <NRF_PSEL(SPIM_SCK, 0, 17)>
+              , <NRF_PSEL(SPIM_MOSI, 0, 20)>
+              , <NRF_PSEL(SPIM_MISO, 0, 20)>
+              ;
+            low-power-enable;
+        };
+    };
+};
+
+&i2c0 {
+    compatible = "nordic,nrf-twi";
+    pinctrl-0 = <&i2c0_default>;
+    pinctrl-1 = <&i2c0_sleep>;
+    pinctrl-names = "default", "sleep";
+};
+
+&spi1 {
+  status = "okay";
+  compatible = "nordic,nrf-spim";
+  pinctrl-0 = <&spi1_default>;
+  pinctrl-1 = <&spi1_sleep>;
+  pinctrl-names = "default", "sleep";
+  cs-gpios = <&gpio1 0 GPIO_ACTIVE_LOW>;
+
+  trackball: trackball@0 {
+      status = "okay";
+      compatible = "pixart,pmw3610";
+      reg = <0>;
+      spi-max-frequency = <2000000>;
+      irq-gpios = <&gpio0 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+      scroll-layers = <1>;
+      automouse-layer = <2>;
+      //snipe-layers = <4>;
+  };
+
+};

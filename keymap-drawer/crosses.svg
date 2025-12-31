@@ -236,8 +236,8 @@ rect.held, rect.combo.held {
   opacity: 1.0;
 }
 </style>
-<g transform="translate(30, 0)" class="layer-base">
-<text x="0" y="28" class="label" id="base">base</text>
+<g transform="translate(30, 0)" class="layer-Base">
+<text x="0" y="28" class="label" id="Base">Base</text>
 <g transform="translate(0, 56)">
 <g transform="translate(28, 28)" class="key keypos-0">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key side"/>
@@ -437,48 +437,48 @@ rect.held, rect.combo.held {
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key side"/>
 <rect rx="4" ry="4" x="-20" y="-24" width="40" height="40" class="key"/>
 <use href="#mdi:keyboard-esc" xlink:href="#mdi:keyboard-esc" x="-11" y="-15" height="22" width="22.0" class="key tap glyph mdi:keyboard-esc"/>
-<a href="#mouse">
-<text x="0" y="24" class="key hold layer-activator">mouse</text>
+<a href="#Mouse">
+<text x="0" y="24" class="key hold layer-activator">Mouse</text>
 </a></g>
 <g transform="translate(252, 196)" class="key keypos-37">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key side"/>
 <rect rx="4" ry="4" x="-20" y="-24" width="40" height="40" class="key"/>
 <use href="#mdi:backspace" xlink:href="#mdi:backspace" x="-11" y="-15" height="22" width="22.0" class="key tap glyph mdi:backspace"/>
-<a href="#nav">
-<text x="0" y="24" class="key hold layer-activator">nav</text>
+<a href="#Navigation">
+<text x="0" y="24" class="key hold layer-activator"><tspan style="font-size: 70%">Navigation</tspan></text>
 </a></g>
 <g transform="translate(308, 196)" class="key keypos-38">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key side"/>
 <rect rx="4" ry="4" x="-20" y="-24" width="40" height="40" class="key"/>
 <use href="#mdi:keyboard-tab" xlink:href="#mdi:keyboard-tab" x="-11" y="-15" height="22" width="22.0" class="key tap glyph mdi:keyboard-tab"/>
-<a href="#num">
-<text x="0" y="24" class="key hold layer-activator">num</text>
+<a href="#Numbers">
+<text x="0" y="24" class="key hold layer-activator">Numbers</text>
 </a></g>
 <g transform="translate(420, 196)" class="key keypos-39">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key side"/>
 <rect rx="4" ry="4" x="-20" y="-24" width="40" height="40" class="key"/>
 <use href="#mdi:keyboard-return" xlink:href="#mdi:keyboard-return" x="-11" y="-15" height="22" width="22.0" class="key tap glyph mdi:keyboard-return"/>
-<a href="#sym">
-<text x="0" y="24" class="key hold layer-activator">sym</text>
+<a href="#Symbols">
+<text x="0" y="24" class="key hold layer-activator">Symbols</text>
 </a></g>
 <g transform="translate(476, 196)" class="key keypos-40">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key side"/>
 <rect rx="4" ry="4" x="-20" y="-24" width="40" height="40" class="key"/>
 <use href="#mdi:keyboard-space" xlink:href="#mdi:keyboard-space" x="-11" y="-15" height="22" width="22.0" class="key tap glyph mdi:keyboard-space"/>
-<a href="#fun">
-<text x="0" y="24" class="key hold layer-activator">fun</text>
+<a href="#Function">
+<text x="0" y="24" class="key hold layer-activator"><tspan style="font-size: 88%">Function</tspan></text>
 </a></g>
 <g transform="translate(532, 196)" class="key keypos-41">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key side"/>
 <rect rx="4" ry="4" x="-20" y="-24" width="40" height="40" class="key"/>
 <text x="0" y="-4" class="key tap">INS</text>
-<a href="#media">
-<text x="0" y="24" class="key hold layer-activator">media</text>
+<a href="#Media">
+<text x="0" y="24" class="key hold layer-activator">Media</text>
 </a></g>
 </g>
 </g>
-<g transform="translate(30, 280)" class="layer-nav">
-<text x="0" y="28" class="label" id="nav">nav</text>
+<g transform="translate(30, 280)" class="layer-Navigation">
+<text x="0" y="28" class="label" id="Navigation">Navigation</text>
 <g transform="translate(0, 56)">
 <g transform="translate(28, 28)" class="key trans keypos-0">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key trans side"/>
@@ -691,8 +691,8 @@ rect.held, rect.combo.held {
 </g>
 </g>
 </g>
-<g transform="translate(30, 560)" class="layer-mouse">
-<text x="0" y="28" class="label" id="mouse">mouse</text>
+<g transform="translate(30, 560)" class="layer-Mouse">
+<text x="0" y="28" class="label" id="Mouse">Mouse</text>
 <g transform="translate(0, 56)">
 <g transform="translate(28, 28)" class="key keypos-0">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key side"/>
@@ -924,8 +924,8 @@ rect.held, rect.combo.held {
 </g>
 </g>
 </g>
-<g transform="translate(30, 840)" class="layer-media">
-<text x="0" y="28" class="label" id="media">media</text>
+<g transform="translate(30, 840)" class="layer-Media">
+<text x="0" y="28" class="label" id="Media">Media</text>
 <g transform="translate(0, 56)">
 <g transform="translate(28, 28)" class="key trans keypos-0">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key trans side"/>
@@ -1156,8 +1156,8 @@ rect.held, rect.combo.held {
 </g>
 </g>
 </g>
-<g transform="translate(30, 1120)" class="layer-num">
-<text x="0" y="28" class="label" id="num">num</text>
+<g transform="translate(30, 1120)" class="layer-Numbers">
+<text x="0" y="28" class="label" id="Numbers">Numbers</text>
 <g transform="translate(0, 56)">
 <g transform="translate(28, 28)" class="key trans keypos-0">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key trans side"/>
@@ -1370,8 +1370,8 @@ rect.held, rect.combo.held {
 </g>
 </g>
 </g>
-<g transform="translate(30, 1400)" class="layer-sym">
-<text x="0" y="28" class="label" id="sym">sym</text>
+<g transform="translate(30, 1400)" class="layer-Symbols">
+<text x="0" y="28" class="label" id="Symbols">Symbols</text>
 <g transform="translate(0, 56)">
 <g transform="translate(28, 28)" class="key trans keypos-0">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key trans side"/>
@@ -1584,8 +1584,8 @@ rect.held, rect.combo.held {
 </g>
 </g>
 </g>
-<g transform="translate(30, 1680)" class="layer-fun">
-<text x="0" y="28" class="label" id="fun">fun</text>
+<g transform="translate(30, 1680)" class="layer-Function">
+<text x="0" y="28" class="label" id="Function">Function</text>
 <g transform="translate(0, 56)">
 <g transform="translate(28, 28)" class="key trans keypos-0">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key trans side"/>

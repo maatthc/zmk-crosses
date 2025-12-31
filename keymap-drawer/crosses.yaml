@@ -1,6 +1,6 @@
 layout: {zmk_keyboard: crosses}
 layers:
-  base:
+  Base:
   - Ctl+Gui+←
   - Q
   - W
@@ -37,13 +37,13 @@ layers:
   - .
   - /
   - Sft+Gui+→
-  - {t: '$$mdi:keyboard-esc$$', h: mouse}
-  - {t: '$$mdi:backspace$$', h: nav}
-  - {t: '$$mdi:keyboard-tab$$', h: num}
-  - {t: '$$mdi:keyboard-return$$', h: sym}
-  - {t: '$$mdi:keyboard-space$$', h: fun}
-  - {t: INS, h: media}
-  nav:
+  - {t: '$$mdi:keyboard-esc$$', h: Mouse}
+  - {t: '$$mdi:backspace$$', h: Navigation}
+  - {t: '$$mdi:keyboard-tab$$', h: Numbers}
+  - {t: '$$mdi:keyboard-return$$', h: Symbols}
+  - {t: '$$mdi:keyboard-space$$', h: Function}
+  - {t: INS, h: Media}
+  Navigation:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
@@ -86,7 +86,7 @@ layers:
   - $$mdi:keyboard-return$$
   - $$mdi:backspace$$
   - DEL
-  mouse:
+  Mouse:
   - $$mdi:bluetooth-off$$
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
@@ -129,7 +129,7 @@ layers:
   - {t: '$$mdi:mouse-right-click$$', h: right}
   - {t: '$$mdi:mouse-left-click$$', h: left}
   - {t: '$$mdi:mouse$$', h: middle}
-  media:
+  Media:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - BRI DN
@@ -172,7 +172,7 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {type: held}
-  num:
+  Numbers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
@@ -215,7 +215,7 @@ layers:
   - '-'
   - '0'
   - .
-  sym:
+  Symbols:
   - {t: '$$mdi:transfer$$', type: trans}
   - '{'
   - '&'
@@ -258,7 +258,7 @@ layers:
   - {type: held}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
-  fun:
+  Function:
   - {t: '$$mdi:transfer$$', type: trans}
   - F12
   - F7
