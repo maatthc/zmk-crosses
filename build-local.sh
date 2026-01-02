@@ -111,7 +111,7 @@ check_workspace() {
     fi
 }
 
-case "${1:-all}" in
+case "${1}" in
     init)
         init_workspace
         ;;
@@ -136,6 +136,7 @@ case "${1:-all}" in
     clean)
         echo "Cleaning build directories..."
         rm -rf "${ZMK_WORKSPACE}/build"
+        rm firmware/*.uf2
         echo "Done. Run './build-local.sh all' to rebuild."
         ;;
     purge)
@@ -158,7 +159,7 @@ case "${1:-all}" in
         touch "${ZMK_WORKSPACE}/.west_update_marker"
         echo "West workspace updated."
         ;;
-    *)
+    "")
         echo "Usage: $0 [init|left|right|reset|all|clean|purge|update]"
         echo ""
         echo "Commands:"
