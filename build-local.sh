@@ -1,6 +1,5 @@
 #!/bin/bash
 # ZMK Local Build Script using Docker (with caching)
-# Usage: ./build-local.sh [left|right|reset|all|init]
 
 BOARD="nice_nano_v2"
 SHIELD_LEFT="crosses_left"
@@ -33,6 +32,7 @@ init_workspace() {
             fi
         "
     
+    touch "${ZMK_WORKSPACE}/.west_update_marker"
     echo "ZMK workspace ready in ${ZMK_WORKSPACE}/"
 }
 
@@ -71,14 +71,47 @@ build_side() {
     fi
 }
 
+check_west_update() {
+    # Check if west update is needed by comparing manifest modification time
+    # with a marker file
+    
+    local manifest_file="${PWD}/config/west.yml"
+    local marker_file="${ZMK_WORKSPACE}/.west_update_marker"
+    local needs_update=false
+    
+    if [ ! -f "${marker_file}" ]; then
+        needs_update=true
+    elif [ "${manifest_file}" -nt "${marker_file}" ]; then
+        needs_update=true
+    fi
+    
+    if [ "$needs_update" = true ]; then
+        echo "West manifest has changed, updating workspace..."
+        docker run --rm \
+            -v "${PWD}/${ZMK_WORKSPACE}:/workspace" \
+            -v "${PWD}/config:/workspace/config:ro" \
+            -w /workspace \
+            zmkfirmware/zmk-dev-arm:stable \
+            bash -c "
+                west update
+                west zephyr-export
+            "
+        
+        touch "${marker_file}"
+        echo "West workspace updated."
+    fi
+}
+
 check_workspace() {
     if [ ! -d "${ZMK_WORKSPACE}/zmk" ]; then
         echo "ZMK workspace not found. Running init first..."
         init_workspace
+    else
+        check_west_update
     fi
 }
 
-case "${1:-all}" in
+case "${1}" in
     init)
         init_workspace
         ;;
@@ -103,6 +136,7 @@ case "${1:-all}" in
     clean)
         echo "Cleaning build directories..."
         rm -rf "${ZMK_WORKSPACE}/build"
+        rm firmware/*.uf2
         echo "Done. Run './build-local.sh all' to rebuild."
         ;;
     purge)
@@ -111,8 +145,22 @@ case "${1:-all}" in
         rm -rf firmware
         echo "Done. Run './build-local.sh init' to reinitialize."
         ;;
-    *)
-        echo "Usage: $0 [init|left|right|reset|all|clean|purge]"
+    update)
+        echo "Forcing west update..."
+        docker run --rm \
+            -v "${PWD}/${ZMK_WORKSPACE}:/workspace" \
+            -v "${PWD}/config:/workspace/config:ro" \
+            -w /workspace \
+            zmkfirmware/zmk-dev-arm:stable \
+            bash -c "
+                west update
+                west zephyr-export
+            "
+        touch "${ZMK_WORKSPACE}/.west_update_marker"
+        echo "West workspace updated."
+        ;;
+    "")
+        echo "Usage: $0 [init|left|right|reset|all|clean|purge|update]"
         echo ""
         echo "Commands:"
         echo "  init   - Initialize/update ZMK workspace (run once)"
@@ -122,6 +170,7 @@ case "${1:-all}" in
         echo "  all    - Build all firmware"
         echo "  clean  - Clean build directories (keep workspace)"
         echo "  purge  - Delete everything, start fresh"
+        echo "  update - Force west update (auto-checked before builds)"
         exit 1
         ;;
 esac
