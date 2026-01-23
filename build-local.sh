@@ -5,6 +5,23 @@ BOARD="nice_nano_v2"
 SHIELD_LEFT="crosses_left"
 SHIELD_RIGHT="crosses_right"
 ZMK_WORKSPACE=".zmk-workspace"
+USB_LOGGING=""
+
+# Parse options
+while [[ "$1" == --* ]]; do
+    case "$1" in
+        --logging)
+            USB_LOGGING="-S zmk-usb-logging"
+            echo "USB logging enabled - cleaning build directories first..."
+            rm -rf "${ZMK_WORKSPACE}/build"
+            shift
+            ;;
+        *)
+            echo "Unknown option: $1"
+            exit 1
+            ;;
+    esac
+done
 
 mkdir -p firmware
 mkdir -p "${ZMK_WORKSPACE}"
@@ -47,6 +64,7 @@ build_side() {
         -v "${PWD}/${ZMK_WORKSPACE}:/workspace" \
         -v "${PWD}/config:/workspace/config:ro" \
         -v "${PWD}/firmware:/workspace/firmware" \
+        -e USB_LOGGING="${USB_LOGGING}" \
         -w /workspace \
         zmkfirmware/zmk-dev-arm:stable \
         bash -c "
@@ -54,7 +72,7 @@ build_side() {
             west zephyr-export 2>/dev/null || true
             
             # Build
-            west build -s zmk/app -b ${BOARD} -d build/${side} -p auto -- \
+            west build -s zmk/app -b ${BOARD} \${USB_LOGGING} -d build/${side} -p auto -- \
                 -DSHIELD=${shield} \
                 -DZMK_CONFIG=/workspace/config \
                 ${extra_args}
@@ -160,7 +178,10 @@ case "${1}" in
         echo "West workspace updated."
         ;;
     "")
-        echo "Usage: $0 [init|left|right|reset|all|clean|purge|update]"
+        echo "Usage: $0 [--logging] [init|left|right|reset|all|clean|purge|update]"
+        echo ""
+        echo "Options:"
+        echo "  --logging  Enable USB logging (for debugging via serial)"
         echo ""
         echo "Commands:"
         echo "  init   - Initialize/update ZMK workspace (run once)"
@@ -171,6 +192,11 @@ case "${1}" in
         echo "  clean  - Clean build directories (keep workspace)"
         echo "  purge  - Delete everything, start fresh"
         echo "  update - Force west update (auto-checked before builds)"
+        echo ""
+        echo "Examples:"
+        echo "  $0 all              # Build all without logging"
+        echo "  $0 --logging all    # Build all with USB logging"
+        echo "  $0 --logging left   # Build left side with USB logging"
         exit 1
         ;;
 esac
