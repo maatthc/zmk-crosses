@@ -87,8 +87,8 @@ layers:
   - $$mdi:backspace$$
   - DEL
   Mouse:
+  - BT CLR ALL
   - $$mdi:bluetooth-off$$
-  - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
