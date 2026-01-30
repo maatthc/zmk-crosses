@@ -29,11 +29,13 @@ This build uses diode-direction as "row2col" and differs from the original GGGW 
 
 ## Building Firmware
 
-### Option 1: GitHub Actions (Recommended)
+### Option 1: GitHub Actions
 
 Push changes to the repository and GitHub Actions will automatically build the firmware. Download the `.uf2` files from the Actions artifacts.
 
-### Option 2: Local Build with Docker
+### Option 2: Local Build with Docker (Recommended)
+
+It's faster when experimenting with different configurations and allows access to the ZMK framework.
 
 #### Prerequisites
 
@@ -67,6 +69,25 @@ Firmware files will be in the `./firmware/` folder:
 - `nice_nano_v2-crosses_left.uf2`
 - `nice_nano_v2-crosses_right.uf2`
 - `nice_nano_v2-settings_reset.uf2`
+
+
+### Support for Bluetooth v4
+
+Enable Bluetooth 4.0 legacy pairing (WARNING: less secure than BT 4.2+)
+This disables the requirement for Secure Connections pairing, ( BT_SMP_SC_PAIR_ONLY )[https://docs.nordicsemi.com/bundle/ncs-1.9.0/page/kconfig/CONFIG_BT_SMP_SC_PAIR_ONLY.html].
+
+Remove the line from the file .zmk-workspace/zmk/app/Kconfig:
+```
+select BT_SMP_SC_PAIR_ONLY
+```
+
+Add to the file config/crosses.conf:
+
+```
+CONFIG_BT_SMP_SC_PAIR_ONLY=n
+```
+
+Then rebuild the firmware.
 
 ## Flashing
 
