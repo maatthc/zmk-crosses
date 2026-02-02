@@ -104,18 +104,6 @@ If you have Bluetooth pairing issues:
 3. Flash the regular firmware to both halves
 4. Re-pair
 
-## Layers
-
-| Layer | Activation | Description |
-|-------|------------|-------------|
-| BASE (0) | Default | QWERTY with home row mods |
-| NAV (1) | Hold Backspace | Navigation, arrows, editing |
-| MOUSE (2) | Hold Escape | Mouse buttons (trackball for movement) |
-| MEDIA (3) | Hold Insert | Media controls, RGB, brightness |
-| NUM (4) | Hold Tab | Number pad |
-| SYM (5) | Hold Enter | Symbols |
-| FUN (6) | Hold Space | Function keys F1-F12 |
-
 ## Trackball
 
 The mouse layer will be active after using the trackball for 400ms.
@@ -132,6 +120,14 @@ The mouse layer will be active after using the trackball for 400ms.
 | `config/crosses.conf` | Global settings (sleep, Bluetooth) |
 | `config/boards/shields/crosses/crosses_right.conf` | Right side (trackball) |
 | `config/boards/shields/crosses/crosses_left.conf` | Left side |
+
+## Keyboard Layers App companion
+
+Display the selected keyboard layer layout on screen to assist your to memorize the key's locations.
+
+It allows you to display the layout in a remote screen, so you can use a tablet or similar to save space on your main screen.
+
+Details here: https://github.com/maatthc/keyboard_layers_app_companion
 
 ## ZMK Studio
 
