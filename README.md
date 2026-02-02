@@ -74,7 +74,7 @@ Firmware files will be in the `./firmware/` folder:
 ### Support for Bluetooth v4
 
 Enable Bluetooth 4.0 legacy pairing (WARNING: less secure than BT 4.2+)
-This disables the requirement for Secure Connections pairing, ( BT_SMP_SC_PAIR_ONLY )[https://docs.nordicsemi.com/bundle/ncs-1.9.0/page/kconfig/CONFIG_BT_SMP_SC_PAIR_ONLY.html].
+This disables the requirement for Secure Connections pairing, [BT_SMP_SC_PAIR_ONLY](https://docs.nordicsemi.com/bundle/ncs-1.9.0/page/kconfig/CONFIG_BT_SMP_SC_PAIR_ONLY.html).
 
 Remove the line from the file .zmk-workspace/zmk/app/Kconfig:
 ```
