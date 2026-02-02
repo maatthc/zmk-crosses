@@ -1,8 +1,8 @@
 # Crosses
 
-A 42-key split ergonomic keyboard with PMW3610 trackball and OLED displays
+A wireless 42-key split ergonomic keyboard with PMW3610 trackball and OLED displays.
 
-This build uses diode-direction as "row2col" and differs from the original GGGW Crosses keyboard, also in GPIOs.
+This build uses diode-direction as "row2col" and differs from the original GGGW Crosses keyboard, also in GPIOs, also known as MiaoMiao’s PCB variant.
 
 ![Photo of Crosses keyboard](https://ergokeyboards.com/cdn/shop/files/crosses-2-web_0e24a52e-7d28-4e77-b14a-005f2d0b4e9c.webp)
 
